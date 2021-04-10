@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100;1,300&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/main.js"></script>
+    <script defer src="js/load.js"></script>
+    <script defer src="js/dragNdrop.js"></script>
+    <script defer src="js/addtask.js"></script>
+    <script defer src="js/add-changeTask.js"></script>
+    <script defer src="js/remove.js"></script>
+
+    <title>KanbanDesk</title>
+</head>
+
+<body>
+<header>
+    <div class="container">
+        <div class="burger-menu">
+            <div class="menu-body">
+                <div class="menu-line"></div>
+                <div class="menu-line"></div>
+                <div class="menu-line"></div>
+            </div>
+        </div>
+        <div class="search-line">
+            <form action="" method="get">
+                <button type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+                <label for="search">
+                    <input id="search" name="search" placeholder="Search " type="search">
+                </label>
+            </form>
+        </div>
+        <div class="logo">
+            <h1><span>K</span>anbanDesk</h1>
+        </div>
+        <div class="user">
+            <div class="user-avatar">
+                <a href="#">
+                    <i class="fas fa-user-circle"></i>
+                </a>
+            </div>
+            <div class="user-info">
+                <p class="user-name">Ivan Ivanov</p>
+                <p class="user-profession">Project manager</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="desk-body">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <div class="column-title">
+                    <h2>to do</h2>
+                    <div class="number-of-elem" id="to_do">
+                        <p>0</p>
+                    </div>
+                </div>
+                <div class="column-remove" data-column-id="todo">
+                    <button class="remove">Remove all</button>
+                </div>
+                <div class="column-body to_do" data-id="to_do">
+                    <div class="createTask-elem">
+                        <div class="createTask-container">
+                            <div class="createTask-content">
+                                <div class="createTask-head">
+                                    <label for="task_title">
+                                        <input id="task_title" class="createTask-title" placeholder="Title">
+                                    </label>
+                                    <div class="createTask-title task-title"></div>
+                                    <div class="elem-cancel create-cancel">
+                                        <img id="cancel_modal" src="images/cancel.svg" alt="cancel">
+                                    </div>
+                                </div>
+                                <div class="create-description">
+                                    <div class="create-task-description">
+                                        <label for="task-description">
+                                    <textarea id="task-description" class="createTask-elem-textarea"
+                                              placeholder="Add a description"></textarea>
+                                        </label>
+                                    </div>
+                                    <div class="creatTask-titleButton" id="submit">
+                                        <img src="images/checkMark.svg" alt="check-mark">
+                                    </div>
+                                </div>
+                                <div class="create-description">
+                                    <div class="createTask-elem-textarea task-elem-textarea"></div>
+                                    <!-- TASK TITLE: PENCIL OR CHECKMARK BUTTON-->
+                                    <div class="creatTask-titleButton" id="edit">
+                                        <img src="images/pencil.svg" alt="pencil">
+                                    </div>
+                                </div>
+                                <!-- CHOOSE USER BLOCK -->
+                                <div class="createTask-elem-chooseUser">
+                                    <div class="chooseUser-container">
+                                        <div class="chooseUser-select">
+                                            <label for="choose_user">
+                                                <select id="choose_user"></select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- EVERYTHING ON THE RIGHT SIDE -->
+                            <div class="createTask-rightBlock">
+                                <!-- SAVE BUTTON -->
+                                <button class="createTask-saveButton" id="firstSave">Save</button>
+                                <!-- ADD COMMENT BUTTON -->
+                                <div class="createTask-addCommentBlock">
+                                    <div class="addCommentBLock-user">
+                                        <div class="addComment-user-select">
+                                            <label for="user_comment">
+                                                <select id="user_comment" class="user-of-comment"></select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="addCommentBLock-action">
+                                        <div class="addCommnetBlock-action-container">
+                                            <label for="add_comment">
+                                                <input id="add_comment" class="addCommentBlock-input" type="text"
+                                                       placeholder="Add a comment">
+                                            </label>
+                                            <button class="addCommentBlock-button">
+                                                <img class="addBut-plus" src="images/plus.svg" alt="add-button">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="createTask-saveButton" id="secondSave">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column-button">
+                    <button class="add-element">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="column">
+                <div class="column-title">
+                    <h2>in progress</h2>
+                    <div class="number-of-elem" id="in_progress">
+                        <p>0</p>
+                    </div>
+                </div>
+                <div class="column-remove" data-column-id="progress">
+                    <button class="remove">Remove all</button>
+                </div>
+                <div class="column-body in_progress" data-id="in_progress"></div>
+            </div>
+            <div class="column">
+                <div class="column-title">
+                    <h2>done</h2>
+                    <div class="number-of-elem" id="done">
+                        <p>0</p>
+                    </div>
+                </div>
+                <div class="column-remove" data-column-id="done">
+                    <button class="remove">Remove all</button>
+                </div>
+                <div class="column-body done" data-id="done"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="popup" id="delete_all_tasks">
+    <div class="popup_body">
+        <div class="popup_content">
+            <div class="popup_text">You are going to delete all the tasks. <br> Confirm your action</div>
+            <div class="buttons">
+                <button class="button" id="delete_all_tasks_confirm">Confirm</button>
+                <button class="button" id="delete_all_tasks_cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup" id="delete_task">
+    <div class="popup_body">
+        <div class="popup_content">
+            <div class="popup_text">You are going to delete this task. <br> Confirm your action</div>
+            <div class="buttons">
+                <button class="button" id="delete_task_confirm">Confirm</button>
+                <button class="button" id="delete_task_cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup" id="exceeding_task_limit">
+    <div class="popup_body">
+        <div class="popup_content">
+            <div class="popup_text_task">You can’t have more than 7 tasks in <span>“IN PROGRESS”</span> column. Please,
+                delete one or more tasks
+            </div>
+            <div class="buttons">
+                <button class="button" id="exceeding_task_limit_cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
